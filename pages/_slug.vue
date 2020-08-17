@@ -14,8 +14,8 @@
 
 <script>
 export default {
-  asyncData({ params }) {
-    const mountain = fetch(
+  async asyncData({ params }) {
+    const mountain = await fetch(
       `https://api.nuxtjs.dev/mountains/${params.slug}`
     ).then(res => res.json());
     return { mountain };
