@@ -11,11 +11,10 @@
 
 <script>
 export default {
-  async asyncData() {
-    const mountains = await fetch("https://api.nuxtjs.dev/mountains").then(
-      res => res.json()
-    );
-    return { mountains };
+  asyncData() {
+    return fetch("https://api.nuxtjs.dev/mountains")
+      .then(res => res.json())
+      .then(mountains => ({ mountains }));
   }
 };
 </script>

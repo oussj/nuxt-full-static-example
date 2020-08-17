@@ -14,11 +14,10 @@
 
 <script>
 export default {
-  async asyncData({ params }) {
-    const mountain = await fetch(
-      `https://api.nuxtjs.dev/mountains/${params.slug}`
-    ).then(res => res.json());
-    return { mountain };
+  asyncData({ params }) {
+    return fetch(`https://api.nuxtjs.dev/mountains/${params.slug}`)
+      .then(res => res.json())
+      .then(mountain => ({ mountain }));
   }
 };
 </script>
